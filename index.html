@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Sign Up</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: #c1bebf;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+overflow: hidden;
+}
+
+.container {
+position: relative;
+width: 400px;
+height: 500px;
+perspective: 1000px;
+}
+
+.flip-card {
+width: 100%;
+height: 100%;
+position: absolute;
+transform-style: preserve-3d;
+transition: transform 0.6s;
+}
+
+.flip-card.show-signup {
+transform: rotateY(180deg);
+}
+
+.card {
+position: absolute;
+width: 100%;
+height: 100%;
+background: url(IMG_20241223_224744_552.webp);
+background-size: 100%;
+/* border: 5px solid black; */
+border-radius: 10px;
+backface-visibility: hidden;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login {
+transform: rotateY(0deg);
+}
+
+.signup {
+transform: rotateY(180deg);
+}
+
+.form-group {
+margin-bottom: 20px;
+width: 80%;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+.form-group input {
+width: 100%;
+padding: 10px;
+border: none;
+background-color: transparent;
+border-radius: 5px;
+outline: none;
+color: black;
+
+}
+
+.action-btn {
+margin: 10px;
+padding: 10px 20px;
+font-size: 16px;
+background-color: black;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+}
+
+.action-btn:hover {
+background-color: #333;
+transform: scale(1.1);
+}
+
+.top-buttons {
+position: absolute;
+top: 10px;
+right: 10px;
+}
+
+.top-buttons button {
+margin-left: 10px;
+padding: 10px;
+border: none;
+border-radius: 5px;
+background-color: #000;
+color: #fff;
+cursor: pointer;
+transition: transform 0.3s, background-color 0.3s;
+}
+
+.top-buttons button:hover {
+background-color: #333;
+transform: rotate(360deg);
+}
+
+.toggle {
+cursor: pointer;
+color: black;
+text-decoration: underline;
+margin-top: 10px;
+}
+h2{
+    text-transform: uppercase;
+    font-family: futura;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+</style>
+</head>
+<body>
+<div class="top-buttons">
+<button>Two</button>
+<button>Good</button>
+<button>Co</button>
+</div>
+
+<div class="container">
+<div class="flip-card" id="flip-card">
+<div class="card login">
+<h2>Set-T!me</h2>
+<div class="form-group">
+<!-- <label for="login-username">Username</label> -->
+<i class="fa-solid fa-user"></i>
+<input type="text" id="login-username" placeholder="Enter your username">
+</div>
+<div class="form-group">
+<!-- <label for="login-email">Email</label> -->
+<i class="fa-solid fa-envelope"></i>
+<input type="email" id="login-email" placeholder="Enter your email">
+</div>
+<div class="form-group">
+<!-- <label for="login-password">Password</label> -->
+<i class="fa-solid fa-lock"></i>
+<input type="password" id="login-password" placeholder="Enter your password">
+</div>
+<button class="action-btn" id="action-btn">Login</button>
+<span class="toggle" onclick="toggleCard()">Don't have an account? Sign Up</span>
+</div>
+
+<div class="card signup">
+<h2>Set-T!me</h2>
+<div class="form-group">
+<!-- <label for="signup-username">Username</label> -->
+<input type="text" id="signup-username" placeholder="Enter your username">
+</div>
+<div class="form-group">
+<!-- <label for="signup-email">Email</label> -->
+<input type="email" id="signup-email" placeholder="Enter your email">
+</div>
+<div class="form-group">
+<!-- <label for="signup-password">Password</label> -->
+<input type="password" id="signup-password" placeholder="Enter your password">
+</div>
+<div class="form-group">
+<!-- <label for="signup-confirm-password">Confirm Password</label> -->
+<input type="password" id="signup-confirm-password" placeholder="Confirm your password">
+</div>
+<button class="action-btn">Sign Up</button>
+<span class="toggle" onclick="toggleCard()">Already have an account? Login</span>
+</div>
+</div>
+</div>
+
+<script>
+function toggleCard() {
+const flipCard = document.getElementById('flip-card');
+flipCard.classList.toggle('show-signup');
+}
+let butt = document.getElementById("action-btn")
+let username= document.getElementById("login-username")
+let password= document.getElementById("login-password")
+let email= document.getElementById("login-email")
+butt.addEventListener("click",function(){
+  window.location.href="main.html"
+})
+</script>
+</body>
+</html>
